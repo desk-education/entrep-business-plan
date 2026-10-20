@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson I: Finalizing Evaluated Business Plan - Pumpkin Sorbet Case Study</title>
+    <!-- Google Fonts for modern, clean typography tailored for Senior High School (Grade 12) Learning -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!--
+    <style>
+        
+    </style>
+    -->
+</head>
+<body>
+
+    <div id="progress-bar"></div>
+
+    <header>
+        <div class="logo-title">
+            <button class="menu-toggle-btn" onclick="toggleSidebarMobile()">☰</button>
+            <button class="btn-sidebar-toggle" id="collapseBtn" onclick="toggleDesktopSidebar()">
+                <span>📂</span> Sidebar
+            </button>
+            <span class="logo-badge">Entrepreneurship</span>
+            <h1 style="font-size: 1.05rem; font-weight: 600;">Business Plan Evaluation</h1>
+        </div>
+        
+        <div class="header-controls">
+            <!-- Classroom Font Size Scaler for Content Area Only -->
+            <div class="font-size-controls" title="Adjust lesson content text size for better visibility at the back row">
+                <button class="btn-font-size" onclick="adjustFontSize(-1)">A-</button>
+                <span class="font-size-display" id="fontSizeLabel" onclick="resetFontSize()">16px</span>
+                <button class="btn-font-size" onclick="adjustFontSize(1)">A+</button>
+            </div>
+
+            <a href="https://docs.google.com/forms" target="_blank" class="btn-sheet-link" title="Open Google Sheet Form">
+                <span>📊</span> Google Sheet Form
+            </a>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search..." onkeyup="highlightSearch()">
+            </div>
+            
+            <select class="select-theme" id="themeSelect" onchange="changeTheme(this.value)">
+                <option value="light">Light Mode</option>
+                <option value="dark">Dark Mode</option>
+                <option value="futuristic">Futuristic</option>
+                <option value="soft-pastel">Soft Pastel</option>
+                <option value="pastel">Pastel</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="app-container" id="appContainer">
+        
+        <aside class="sidebar" id="sidebar">
+            <h3 style="font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 12px;">Lesson Outline</h3>
+            <ul class="sidebar-menu">
+                <li><a href="#lesson-1-intro" class="nav-link active" onclick="closeSidebarMobile()">Lesson II: Intro & Vocab</a></li>
+                <li><a href="#activity-section" class="nav-link" onclick="closeSidebarMobile()">Interactive Activity</a></li>
+                <li><a href="#section-1" class="nav-link" onclick="closeSidebarMobile()">I. Executive Summary</a></li>
+                <li><a href="#section-2" class="nav-link" onclick="closeSidebarMobile()">II. Overview of Business</a></li>
+                <li><a href="#section-3" class="nav-link" onclick="closeSidebarMobile()">III. Business Plan</a></li>
+                <li><a href="#section-4" class="nav-link" onclick="closeSidebarMobile()">IV. Vision, Mission & Values</a></li>
+                <li><a href="#section-5" class="nav-link" onclick="closeSidebarMobile()">V. Market Profile</a></li>
+                <li><a href="#section-6" class="nav-link" onclick="closeSidebarMobile()">VI. Production / Technical</a></li>
+                <li><a href="#section-7" class="nav-link" onclick="closeSidebarMobile()">VII. Organizational Plan</a></li>
+                <li><a href="#section-8" class="nav-link" onclick="closeSidebarMobile()">VIII. Operational Plan</a></li>
+                <li><a href="#section-9" class="nav-link" onclick="closeSidebarMobile()">IX. Financial Plan</a></li>
+                <li><a href="#assessment-section" class="nav-link" onclick="closeSidebarMobile()">Student Assessment</a></li>
+                <li><a href="#teacher-section" class="nav-link" onclick="closeSidebarMobile()">Teacher Answer Key & Guide</a></li>
+            </ul>
+
+            <div class="student-prompt" style="margin-top: 25px;">
+                <strong>🎓 Senior High Learning Tip</strong>
+                <p style="text-indent: 0; font-size: 0.82em; margin: 0;">Use the benchmark business plan below to evaluate your peers' business plans based on criteria like feasibility, social impact, and clarity!</p>
+            </div>
+        </aside>
+
+        <main class="content-area">
+
+            <div class="metrics-bar">
+                <div class="metric-card">
+                    <div class="metric-label">Initial Capital</div>
+                    <div class="metric-value">₱90,000</div>
+                </div>
+                <div class="metric-card green">
+                    <div class="metric-label">Daily Target Buyers</div>
+                    <div class="metric-value">530</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Target ROE (2 Yrs)</div>
+                    <div class="metric-value">20%</div>
+                </div>
+                <div class="metric-card green">
+                    <div class="metric-label">Shelf Life</div>
+                    <div class="metric-value">28 Days</div>
+                </div>
+            </div>
+
+            <section id="lesson-1-intro" class="section-card">
+                <div class="lesson-header-box">
+                    <h2>LESSON II: FINALIZING EVALUATED BUSINESS PLAN</h2>
+                    <p style="text-indent: 0; margin-top: 10px; font-size: 1.05em;">
+                        <strong>WHAT IS THIS LESSON ABOUT?</strong><br>
+                        This lesson deals with how to critically evaluate a business plan in order to come up with a final form.
+                    </p>
+                    
+                    <div class="objectives-box">
+                        <strong style="color: var(--secondary);">WHAT WILL YOU LEARN?</strong>
+                        <p style="text-indent: 0; margin-bottom: 5px;">At the end of the lesson, you should be able to:</p>
+                        <ol>
+                            <li>Finalize the evaluated business plan based on the set of criteria.</li>
+                            <li>Appreciate the importance of using business plan.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <h3 style="border-bottom: 2px solid var(--border-color); padding-bottom: 5px; margin-bottom: 15px;">LET US STUDY</h3>
+                <h4 style="color: var(--primary); font-size: 1.05em; margin-bottom: 10px;">WORDS TO STUDY</h4>
+                
+                <div class="vocab-grid">
+                    <div class="vocab-card">
+                        <div class="vocab-term">Business Plan</div>
+                        <div class="vocab-def">is a step by step guide in the thorough operation of the business enterprise.</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="vocab-term">Enterprise</div>
+                        <div class="vocab-def">is a project activity commercial or industrial. It may also be an organizational activity.</div>
+                    </div>
+                    <div class="vocab-card">
+                        <div class="vocab-term">Assessment Tool</div>
+                        <div class="vocab-def">is an instrument used to evaluate a performance.</div>
+                    </div>
+                     
+                </div>
+                <div class="vocab-card">
+                        <div class="vocab-term">Evaluation</div>
+                        <div class="vocab-def">is a rigorous analysis of completed or ongoing activities that determine or support management accountability, effectiveness and efficiency.</div>
+                        </div>
+                <div class="vocab-card" style="grid-column: span 1 / -1;">
+                        <div class="vocab-term">Component</div>
+                        <div class="vocab-def">
+                            is a uniquely identifiable input, part, piece, assembly or sub- assembly, system or sub - system that:
+                            <ol style="padding-left: 20px; margin-top: 5px;">
+                                <li>is required to complete or finish an activity, item or job.</li>
+                                <li>Performs a distinctive and necessary function in the operation of a system or;</li>
+                                <li>is identified to be included as a part of a finished, packaged and labeled item.</li>
+                            </ol>
+                        </div>
+                </div>
+                <div class="vocab-card" style="grid-column: span 1 / -1;">
+                        <div class="vocab-term">Criteria</div>
+                        <div class="vocab-def">is the statement of need, rules, standards or tests that must be used in evaluating a decision, idea, opportunity, program, projects, etc. to form correct judgment intended goal.</div>
+                        </div>
+            </section>
+
+            <!-- INTERACTIVE DRAG & DROP ACTIVITY -->
+            <section id="activity-section" class="section-card">
+                <h2>🎮 Interactive Learning Activity: Term Matching</h2>
+                <p style="text-indent: 0;">Drag (or tap to select) each term from the top bank into its corresponding target definition box below!</p>
+                
+                <div class="activity-box">
+                    <div class="drag-container" id="dragBank">
+                        <div class="drag-item" draggable="true" id="term-ent" onclick="selectTermTouch(this)">Enterprise</div>
+                        <div class="drag-item" draggable="true" id="term-bp" onclick="selectTermTouch(this)">Business Plan</div>
+                        <div class="drag-item" draggable="true" id="term-crit" onclick="selectTermTouch(this)">Criteria</div>
+                        <div class="drag-item" draggable="true" id="term-eval" onclick="selectTermTouch(this)">Evaluation</div>
+                    </div>
+
+                    <div class="drop-grid">
+                        <div class="drop-target" data-match="term-bp" onclick="dropTermTouch(this)">
+                            <span style="font-size: 0.85em; color: var(--text-muted);">Step-by-step guide in the operation of the business enterprise.</span>
+                            <div class="target-slot"></div>
+                        </div>
+                        <div class="drop-target" data-match="term-ent" onclick="dropTermTouch(this)">
+                            <span style="font-size: 0.85em; color: var(--text-muted);">A project activity commercial or industrial.</span>
+                            <div class="target-slot"></div>
+                        </div>
+                        <div class="drop-target" data-match="term-eval" onclick="dropTermTouch(this)">
+                            <span style="font-size: 0.85em; color: var(--text-muted);">Rigorous analysis supporting management accountability and efficiency.</span>
+                            <div class="target-slot"></div>
+                        </div>
+                        <div class="drop-target" data-match="term-crit" onclick="dropTermTouch(this)">
+                            <span style="font-size: 0.85em; color: var(--text-muted);">Statement of needs, rules, standards, or tests used in evaluation.</span>
+                            <div class="target-slot"></div>
+                        </div>
+                    </div>
+                    <button class="btn-submit" style="margin-top: 15px;" onclick="resetActivity()">Reset Activity</button>
+                </div>
+            </section>
+
+            <div class="benchmark-banner">
+                <p style="text-indent: 0; margin: 0;">📌 Let us study an example of business plan with complete parts for you to use as benchmark in evaluating your fellow student's business plan.</p>
+            </div>
+
+            <!-- Section I: Executive Summary -->
+            <section id="section-1" class="section-card">
+                <h2>I. Executive Summary</h2>
+                <p>Pumpkin Sorbet is cooperative in nature. It is to be run by the students themselves. Its initial capital for the first month of operation of PhP 90,000.00 will be coming from the student-owners by means of their investments as their stock in the business and from fund-raising activities as well. It is a food stall located inside the campus. Sorbet as the main product is to be manufactured by the proponents and to be sold and distributed to the target markets of 530 students daily include the MBHS students, the elementary pupils undergoing the feeding programs and selected hospitals in District II. Since the main product is made from pumpkin or squash, it promotes healthy, affordable and satisfying pumpkin derivative products. The proponents made an agreement with the MBHS administration on how they can be of help on the promotion of nutrition and on increasing the agricultural market especially on "Pagkaing Sapat Program". They are currently on negotiation with the Principals of Cupang, Buli, and Alabang Elementary schools regarding the inclusion of the pumpkin sorbet in the dietary supplement among the students in the school's feeding program. Since it is a vegetable-flavoured ice cream, it contains lots of nutrients like beta-carotenes and lutein.</p>
+                <p>Pumpkin Sorbet aims to be the leading producer and provider of nutritious and affordable home-made ice cream inside the campus of MBHS and other Elementary schools near the said school. The total population of MBHS is 3,219 students and based on the registered school nurse, about 60 of them is malnourished. Estimating 10% of the population will buy the product. The student-owners will be trained and guided before they handle the business to avoid lapses and misconceptions. They will be supervised by their Business Education mentors.</p>
+                <p>The management and operation of Pumpkin Sorbet starts from inventory and estimation of the volume of ice cream to be produced daily. Second is purchasing of the ingredients and raw materials needed to complete the preparation of the product. Third are production, packaging and freezing of the ice cream. Lastly, marketing and selling of the product. As a food stall, it ensures safety and sanitation of its business structures and cleanliness of the product itself. It aims to lower the price of the ice cream without sacrificing its quality. It has a shelf life of five days.</p>
+                <p>Since it is new in the business line of MBHS, it initially aims to capture 10% of the existing market shares which is currently dominated by school canteen's Kyla's Ice Cream. And Creamline Ice Cream and Dan Eric's Ice Cream which is located within the Espeleta Street.</p>
+                <p>Pumpkin Sorbet is highly feasible, doable and socially desirable. It will help both the school and the students. This will serve as learning laboratory for the students of MBHS especially to the newbie. It will also be the inspiration for the aspiring business men to be a successful entrepreneur. The proponents of the business advocates being the leading promoter of agricultural products specifically squash. This will help increase the demands of pumpkin or squash, thereby economically promotes livelihood among the squash growing farmers in the area.</p>
+            </section>
+
+            <!-- Section II: Overview of the Business -->
+            <section id="section-2" class="section-card">
+                <h2>II. Overview of the Business</h2>
+                <p class="section-title">I. Pumpkin Sorbet</p>
+                <p>II. Pumpkin Sorbet is both the business name and the name of its primary products. It is cooperative in nature. Specifically, it will produce a pumpkin-flavoured ice sorbet that will be dressed with sprinkles, marshmallows and peanuts that will surely fit and guarantee clientele's satisfaction. It combines innovativeness and creativity in product concepts such as ice cream with pumpkin as the main ingredient. Dominating the existing ice cream businesses in Buli as well as in Muntinlupa will be its main thrust.</p>
+                <p>III. It envisions to be the leading provider of high quality but affordable ice cream in Muntinlupa. Continues innovation of the product will be processed to supply the needs of Muntinlupeños. Also, it will help ease the malnutrition in Muntinlupa through the help of pumpkin-flavoured ice cream and somehow help the squash farmers in terms of increasing the consumption and demand of squash in the city.</p>
+            </section>
+
+            <!-- Section III: Business Plan -->
+            <section id="section-3" class="section-card">
+                <h2>III. Business Plan</h2>
+                <h3>The Needs</h3>
+                <p>A. Malnutrition is one of the major problems, Filipinos school children are facing nowadays. Malnutrition means lacking of the right nutrition needed by the body resulting which may result to poor academic achievements. This has been correlated with educational research that malnutrition affects learning abilities of the child. It is also one of the reasons behind why we have unstable economy. Being in the public school, the proponents understood most of their classmates were not eating vegetable-rich products. By these assumptions, the proponents come up with a concept that will not only satisfy the clientele's taste but also sustain the nutrients they need to be healthy aside from the fact, that using squash as main ingredient in foods will also boosts the agricultural demand for the squash. This will benefit the squash farmers in the country. This will help us save some money for the economy and may prevent importation this vegetable.</p>
+                <p>B. Pumpkin Sorbet, a pumpkin-flavoured ice cream that will surely sustain the needs of the people, especially the poor children. Children today usually prefer meat more than vegetables. Ice cream is an all time Filipino favourite; this prompted the proponents to innovate the usual fruity ice-cream flavours with the use of vegetable such as pumpkin. The product has almost the same creaminess, puffiness, and consistency in texture as the commercially available ice-cream and will surely entice the taste of even the carnivorous children. Unknowingly they are already including vegetables in their diet.</p>
+                <p>C. The proponents believe that the clientele will support the product because of its unique flavour and appearance. With this, Pumpkin Sorbet will be instrumental in helping alleviate malnutrition cases in the country especially those who are in the public school system. This may also serve as basis for other entrepreneurs to discover and innovate more nutritious vegetable flavoured foods other than ice cream; just like for example bitter gourd, eggplant and other vegetables. The proponents believe that this will not only address the health problems of the country but the agricultural economy as well.</p>
+            </section>
+
+            <!-- Section IV: Vision, Mission and Values -->
+            <section id="section-4" class="section-card">
+                <h2>IV. Vision, Mission and Values</h2>
+                <h3>Vision</h3>
+                <p>In the name of good customer service, Pumpkin Sorbet envisions as the leading advocate of healthy and natural food products, working with squash farmers cooperative and the leading providers of the best pumpkin ice-cream by the year 2010.</p>
+                <h3>Mission</h3>
+                <p>Pumpkin Sorbet aims to produce and sell healthy, clean, nutritious and high quality sorbets for the clienteles and cooperatively works with the squash farmers in the city of Muntinlupa. This is through the dedication and passion of the management to produce this kind of product. In line with these, it sets a mission to achieve at least 20% return on equity after two years of operation.</p>
+                <h3>Values</h3>
+                <p>Pumpkin Sorbet as a business, commits to give its customers the best product it can serve. It will maintain its high standard of hard work, hygiene and sanitation in food preparation and handling and also the proper grooming and etiquette of the owners and personnel. The dedicated management will give their best to deliver with full sincerity and honesty for a better customer service. It will give a prompt, fast, accurate and best service to its clients. The management also sets to create a support system for the squash growing farmers in order to economically improve their standard of living.</p>
+            </section>
+
+            <!-- Section V: Market Profile -->
+            <section id="section-5" class="section-card">
+                <h2>V. Market Profile</h2>
+                <h3>A. Research and Analysis</h3>
+                <p>Today's sorbet stalls are believed to have a little improvement for customer's satisfaction. The proponents decided that they must undergo a careful observation in the business location. The management also underwent an official interview with the owners of current ice cream stalls in Buli. The proponents found out that customers are not that satisfied with the ice cream sold along the Espeleta Street and most of the products are not that nutritious to sustain body needs. The management believes that action must be taken primarily to make a new twist in preparing and serving ice creams that has very huge market in the nation.</p>
+                <p>The current status of squash growing farmers in the city where the squash supply are to be taken was also observed and given attention in order to support them when the business starts its operations.</p>
+                <p>With these premises, the proponents decided to produce pumpkin-flavoured ice cream which will answer the needs of the students in the area. The market will be four (4) Elementary Schools and one (1) Secondary School. The target students are those who are malnourished and member of feeding program.</p>
+
+                <h3>B. Marketing Plan</h3>
+                <p class="table-caption">Table 1<br>Number of Target Ice Cream Buyers per Consumer Group</p>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Populace</th>
+                                <th rowspan="2">MBHS</th>
+                                <th colspan="5">Feeding Program Members</th>
+                                <th rowspan="2">Total</th>
+                            </tr>
+                            <tr>
+                                <th>MBHS</th>
+                                <th>Alabang ES</th>
+                                <th>Sucat ES</th>
+                                <th>Buli ES</th>
+                                <th>Cupang ES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total</td>
+                                <td>3,160</td>
+                                <td>60</td>
+                                <td>87</td>
+                                <td>84</td>
+                                <td>45</td>
+                                <td>68</td>
+                                <td>3,504</td>
+                            </tr>
+                            <tr>
+                                <td>Daily</td>
+                                <td>316</td>
+                                <td>36</td>
+                                <td>52</td>
+                                <td>50</td>
+                                <td>27</td>
+                                <td>49</td>
+                                <td>530</td>
+                            </tr>
+                            <tr>
+                                <td>Monthly</td>
+                                <td>6,952</td>
+                                <td>792</td>
+                                <td>1,144</td>
+                                <td>1,100</td>
+                                <td>594</td>
+                                <td>1,078</td>
+                                <td>11,660</td>
+                            </tr>
+                            <tr>
+                                <td>Yearly</td>
+                                <td>83,424</td>
+                                <td>9,504</td>
+                                <td>13,728</td>
+                                <td>13,200</td>
+                                <td>7,128</td>
+                                <td>12,936</td>
+                                <td>139,200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>Based on the given consumer groups, the daily, monthly, and yearly target buyers are reflected through the assumption that 10% from MBHS group will buy ice cream from Pumpkin Sorbet and 60% from those feeding program members will buy every three days. During summer vacation, Pumpkin Sorbet will only serve their products in different hospitals where we can assure the sale and can help patient in sustaining their health.</p>
+            </section>
+
+            <!-- Section VI: Production/Technical Plan -->
+            <section id="section-6" class="section-card">
+                <h2>VI. Production/Technical Plan</h2>
+                <h3>A. Product Description</h3>
+                <p>Pumpkin Sorbet is a business selling a pumpkin- flavoured sorbet. The finished product will be placed in a plastic cup and depending on the consumers, they will choose if they want their sorbet to have a dressing (sprinkles) or added flavour. The product as researched was proven nutritious palatable. Today's Ice Creams are not that nutritious and of with poor quality. Pumpkin Sorbet made it with a new twist by means of using vegetable like squash as the main ingredient. The individual finished products will be package in a cup with design. There will also be packaging for wholesale purchases</p>
+
+                <h3>B. Operating Strategies</h3>
+                <p>The business will produce a pumpkin sorbet station with high quality contents and nutritious value as well. Pumpkin Sorbet will need raw materials to produce the goods to be sold. These include All- Purpose Cream, Condensed Milk, Cassava Starch, Cheese, Gelatine Powder, Powdered Milk, Vanilla Essence, and the main ingredients, Pumpkin. The proponents will be the one to produce the product. Raw materials will be purchased at Alabang Market or Lianas Supermarket where we can assure the quality and the aspects of perish ability. The proponents tried to interview the teachers and some students by offering them a free taste and made a comment after. During the operation, the business will think of more ideas on how to create more appealing and attractive products.</p>
+
+                <h3>C. Critical Risk</h3>
+                <p class="table-caption">Table 2<br>Pumpkin Sorbet's Position in the Market</p>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Competitors</th>
+                                <th>Market Share</th>
+                                <th>Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kyla's Ice Cream</td>
+                                <td>35%</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <td>Dan Eric's Ice Cream</td>
+                                <td>45%</td>
+                                <td>40%</td>
+                            </tr>
+                            <tr>
+                                <td>Cream Line Ice Cream</td>
+                                <td>20%</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <td>Pumpkin Sorbet</td>
+                                <td></td>
+                                <td>10%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>Based on the table showed, there are three competitors who dominate the market of Ice Cream in Buli. Pumpkin Sorbet aims 10% of the market share. Through creativity, uniqueness and innovation, the management believe that it will be achieved.</p>
+            </section>
+
+            <!-- Section VII: Organizational Plan -->
+            <section id="section-7" class="section-card">
+                <h2>VII. Organizational Plan</h2>
+                <h3>A. Team Members</h3>
+                <div class="org-chart">
+                    <div class="org-box">Owners/Management</div>
+                    <div class="org-line"></div>
+                    <div class="org-box">Sales Personnel</div>
+                </div>
+                <p class="table-caption" style="margin-bottom: 25px;">Figure 1: Organizational Chart</p>
+
+                <h3>B. Contribution to the Business</h3>
+                <p style="text-indent: 0;"><strong>Owners</strong>- it is responsible for the management and accountability of the business itself, at the same time they are the ones who will produce the product.</p>
+                <p style="text-indent: 0;"><strong>Sales Personnel</strong> – it is responsible for the advertisement, selling promotion of the product.</p>
+            </section>
+
+            <!-- Section VIII: Operational Plan -->
+            <section id="section-8" class="section-card">
+                <h2>VIII. Operational Plan</h2>
+                <h3>A. Workflow</h3>
+
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="workflow-num">1</div>
+                        <div>Inventory and estimation of the number of ice cream to be produced.</div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="workflow-num">2</div>
+                        <div>Purchasing of Ingredients and Raw Materials needed.</div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="workflow-num">3</div>
+                        <div>Production , packaging and freezing of the ice cream</div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="workflow-num">4</div>
+                        <div>Delivering and selling of the product.</div>
+                    </div>
+                </div>
+
+                <p>Pumpkin Sorbet has a very simple operational plan. It starts from inventory and estimation of the volume of ice cream to be produced daily, then Purchasing of Ingredients and raw materials needed. After purchasing, the production, packaging and freezing. Lastly, the marketing or the selling of the product.</p>
+
+                <h3>B. Monitoring and Evaluation</h3>
+                <p>Pumpkin Sorbet will manufacture at least thirteen (13) gallons of ice cream per day. It takes less than an hour to prepare the mixtures before freezing. The three (3) proponents divide the work among themselves. The production hour will be done after classes so as not to affect their studies. Since the shelf life is about 28 days, the possibility of producing for advance demand is highly considered. It will supply four (4) Elementary Schools (gallons each) and a Secondary School that will serve as its main market (4 gallons).</p>
+            </section>
+
+            <!-- Section IX / I: Financial Plan -->
+            <section id="section-9" class="section-card">
+                <h2>I. Financial Plan</h2>
+                <p>Pumpkin Sorbet will need at least PhP 90,000.00 to start its operation in the market. This will be coming from the investments of the students who are willing to be involved in entrepreneurial practice like this. Also, since two of the proponents are Club Presidents and the other one is MBHS Chorale Leader, they may combine their talents to conduct fund raising activities to increase the capital investment of the business.</p>
+
+                <p class="table-caption">Table 3<br>Monthly Expenses of Pumpkin Sorbet</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product/Service</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4" style="text-align: left; font-weight: bold; background-color: var(--primary-light);">Fixed Cost of Pumpkin Sorbet:</td>
+                            </tr>
+                            <tr>
+                                <td>Rental</td>
+                                <td>PhP1,000.00</td>
+                                <td>1 month</td>
+                                <td>PhP 1,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Salaries</td>
+                                <td>5,000.00</td>
+                                <td>3 crews</td>
+                                <td>15,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Advertising</td>
+                                <td>1,000.00</td>
+                                <td>1 month</td>
+                                <td>1,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Depreciation Account- Freezer(Small)</td>
+                                <td>13,000.00</td>
+                                <td>1 Freezer</td>
+                                <td>1,300.00</td>
+                            </tr>
+                            <tr>
+                                <td>Depreciation Account- Blender</td>
+                                <td>770.00</td>
+                                <td>2 Blenders</td>
+                                <td>140.00</td>
+                            </tr>
+                            <tr>
+                                <td>Depreciation Account- Chairs and Tables</td>
+                                <td>1,800/set</td>
+                                <td>2 sets</td>
+                                <td>300.00</td>
+                            </tr>
+                            <tr>
+                                <td>Depreciation Account- Tools and Utensils</td>
+                                <td>900.00</td>
+                                <td>2 set of tools & utensils</td>
+                                <td>180.00</td>
+                            </tr>
+                            <tr>
+                                <td>Utility and Sanitation</td>
+                                <td>1,500.00</td>
+                                <td>1 month</td>
+                                <td>1,500.00</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">(A)Total Fixed Cost</td>
+                                <td></td>
+                                <td></td>
+                                <td style="font-weight: bold;">PhP 20,420.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: left; font-weight: bold; background-color: var(--primary-light);">Variable Cost:</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: left; font-weight: bold; background-color: var(--secondary-light);">Raw Materials:</td>
+                            </tr>
+                            <tr>
+                                <td>Plastic Spoons</td>
+                                <td>25.00</td>
+                                <td>66 packs</td>
+                                <td>1,650.00</td>
+                            </tr>
+                            <tr>
+                                <td>Packaging (Plastic Cups)</td>
+                                <td>50.00/pack</td>
+                                <td>66 packs</td>
+                                <td>3,300.00</td>
+                            </tr>
+                            <tr>
+                                <td>All Purpose Cream</td>
+                                <td>38.50</td>
+                                <td>572 tetra packs</td>
+                                <td>22,022.00</td>
+                            </tr>
+                            <tr>
+                                <td>Condensed Milk</td>
+                                <td>36.50</td>
+                                <td>286 cans</td>
+                                <td>10,439.00</td>
+                            </tr>
+                            <tr>
+                                <td>Alsa Gulaman</td>
+                                <td>39.50</td>
+                                <td>143 boxes</td>
+                                <td>5648.50</td>
+                            </tr>
+                            <tr>
+                                <td>Cassava Flour</td>
+                                <td>25</td>
+                                <td>1.5 kilo</td>
+                                <td>37.50</td>
+                            </tr>
+                            <tr>
+                                <td>Powdered Milk</td>
+                                <td>41.50</td>
+                                <td>57 packs</td>
+                                <td>2,365.50</td>
+                            </tr>
+                            <tr>
+                                <td>Vanilla Essence</td>
+                                <td>14.00</td>
+                                <td>95 bottles</td>
+                                <td>1,330.00</td>
+                            </tr>
+                            <tr>
+                                <td>Cheese</td>
+                                <td>23.50</td>
+                                <td>95 bar</td>
+                                <td>2,232.50</td>
+                            </tr>
+                            <tr>
+                                <td>Electricity</td>
+                                <td>1,000.00</td>
+                                <td>1 month</td>
+                                <td>800.00</td>
+                            </tr>
+                            <tr>
+                                <td>Communication Bills</td>
+                                <td>800.00</td>
+                                <td>1 month</td>
+                                <td>600.00</td>
+                            </tr>
+                            <tr>
+                                <td>Water Supply</td>
+                                <td>600.00</td>
+                                <td>1 month</td>
+                                <td>400.00</td>
+                            </tr>
+                            <tr>
+                                <td>Transportation</td>
+                                <td>300.00</td>
+                                <td>1 month</td>
+                                <td>250.00</td>
+                            </tr>
+                            <tr>
+                                <td>Miscellaneous</td>
+                                <td>1,500.00</td>
+                                <td>1 month</td>
+                                <td>500.00</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">(B) Total Variable Cost</td>
+                                <td></td>
+                                <td></td>
+                                <td style="font-weight: bold;">PhP 51,575.00</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">(A+B) Total Cost of Production</td>
+                                <td></td>
+                                <td></td>
+                                <td style="font-weight: bold;">PhP 71,995.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="table-caption">Table 4<br>PROJECTED REVENUE</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ice Cream Flavour</th>
+                                <th>Costing</th>
+                                <th>Projected Volume (in cups) Daily</th>
+                                <th>Daily Revenue</th>
+                                <th>Projected Volume Monthly</th>
+                                <th>Monthly Revenue</th>
+                                <th>Yearly Projected Revenue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3">Pumpkin</td>
+                                <td>C-5</td>
+                                <td rowspan="3">530</td>
+                                <td rowspan="3">PhP 3,710.00</td>
+                                <td rowspan="3">11660</td>
+                                <td rowspan="3">PhP 81,620.00</td>
+                                <td rowspan="3">PhP 979,440.00</td>
+                            </tr>
+                            <tr><td>M-2</td></tr>
+                            <tr><td>SP-7</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="background-color: var(--primary-light); padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9em;">
+                    <strong>LEGEND:</strong><br>
+                    Cost – C<br>
+                    Mark-up – M<br>
+                    Sales price – SP
+                </div>
+
+                <p class="table-caption">Table 5<br>MONTHLY PROJECTED COST & REVENUE</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Jan</th>
+                                <th>Feb</th>
+                                <th>Mar</th>
+                                <th>Apr</th>
+                                <th>May</th>
+                                <th>Jun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Revenue</td>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                            </tr>
+                            <tr>
+                                <td>Cost</td>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                            </tr>
+                            <tr>
+                                <td>Projected Net Profit</td>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Jul</th>
+                                <th>Aug</th>
+                                <th>Sep</th>
+                                <th>Oct</th>
+                                <th>Nov</th>
+                                <th>Dec</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                                <td>81,620.00</td>
+                                <td style="font-weight:bold;">PhP 979,440.00</td>
+                            </tr>
+                            <tr>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                                <td>71,995.00</td>
+                                <td style="font-weight:bold;">PhP 863,940.00</td>
+                            </tr>
+                            <tr>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                                <td>9,625.00</td>
+                                <td style="font-weight:bold;">PhP 283,500.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="formula-box">
+                    <h4>Break-Even Guide</h4>
+                    <p>Total Revenue (TR) = Fixed Cost (FC) + Variable Cost (VC)</p>
+                    <p>When TR is > then FC and VC means the business is earning profit.</p>
+                    <p>When TR is < then the FC + VC means the business is losing.</p>
+                    <p>When TR = then FC + VC, the business is break-even.</p>
+                </div>
+
+                <p>Table 5 shows the monthly projected cost & revenue. As shown, the business projected Php 979,440.00 gross sales for a year which is greater than the cost at Php 863,940.00. thus, a net annual profit of Php 283,500.00. This is 32.81% of the total cost.</p>
+
+                <p class="table-caption">Table 6<br>Project Cost</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PARTICULAR</th>
+                                <th>EQUITY</th>
+                                <th>LOAN</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4" style="text-align: left; font-weight: bold; background-color: var(--primary-light);">Fixed Assets</td>
+                            </tr>
+                            <tr>
+                                <td>Equipments</td>
+                                <td>PhP 6,440.00</td>
+                                <td>PhP 15,000.00</td>
+                                <td>PhP 21,440.00</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">TOTAL</td>
+                                <td style="font-weight: bold;">PhP 6,440.00</td>
+                                <td style="font-weight: bold;">PhP 15,000.00</td>
+                                <td style="font-weight: bold;">PhP 21,440.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: left; font-weight: bold; background-color: var(--primary-light);">Other Assets</td>
+                            </tr>
+                            <tr>
+                                <td>Rent Deposit</td>
+                                <td>PhP 3,000.00</td>
+                                <td>0.00</td>
+                                <td>PhP 3,000.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: left; font-weight: bold; background-color: var(--primary-light);">Working Capital (3 months)</td>
+                            </tr>
+                            <tr>
+                                <td>Supplies and Materials</td>
+                                <td>PhP 30,075.00</td>
+                                <td>PhP 117,000.00</td>
+                                <td>PhP 147,075.00</td>
+                            </tr>
+                            <tr>
+                                <td>Other Operational Supplies</td>
+                                <td>PhP 7,650.00</td>
+                                <td>0.00</td>
+                                <td>PhP 7,650.00</td>
+                            </tr>
+                            <tr>
+                                <td>Salaries</td>
+                                <td>PhP 20,000.00</td>
+                                <td>PhP 25,000.00</td>
+                                <td>PhP 45,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Rent</td>
+                                <td>PhP 3,000.00</td>
+                                <td>0.00</td>
+                                <td>PhP 3,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Utilities</td>
+                                <td>PhP 4,500.00</td>
+                                <td>0.00</td>
+                                <td>PhP 4,500.00</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">TOTAL</td>
+                                <td></td>
+                                <td></td>
+                                <td style="font-weight: bold;">PhP 207,225.00</td>
+                            </tr>
+                            <tr>
+                                <td>Pre-Operating Expense</td>
+                                <td>PhP 15,000.00</td>
+                                <td>0.00</td>
+                                <td>PhP 15,000.00</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Grand Total (Pesos)</td>
+                                <td style="font-weight: bold;">PhP 89,665.00</td>
+                                <td style="font-weight: bold;">PhP157,000.00</td>
+                                <td style="font-weight: bold;">PhP 246,665.00</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Grand Total (%)</td>
+                                <td style="font-weight: bold;">36.5%</td>
+                                <td style="font-weight: bold;">63.5%</td>
+                                <td style="font-weight: bold;">100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="table-caption">Table 7<br>Loan Repayment Schedule</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>YEAR</th>
+                                <th>TOTAL AMORTIZATION</th>
+                                <th>INTEREST</th>
+                                <th>PRINCIPAL</th>
+                                <th>BALANCE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>PhP157,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>PhP 180,550.00</td>
+                                <td>PhP 23,550.00</td>
+                                <td>PhP157,000.00</td>
+                                <td>0.00</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="text-indent: 0; font-size: 0.85em;">**Interest at 15%</p>
+
+                <p class="table-caption">Table 8<br>Pumpkin Sorbet<br>PROJECTED INCOME STATEMENT<br>FOR THE YEARS ENDED 2008- 2010</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>2008</th>
+                                <th>2009</th>
+                                <th>2010</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>REVENUE</td>
+                                <td>PhP 979,440.00</td>
+                                <td>PhP 1,175,328.00</td>
+                                <td>PhP1,410,393.60</td>
+                            </tr>
+                            <tr>
+                                <td>Cost /Expenses</td>
+                                <td>PhP 863,940.00</td>
+                                <td>PhP 1,036,728.00</td>
+                                <td>PhP1,244,073.60</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Projected Net Income</td>
+                                <td>PhP 115,500.00</td>
+                                <td>PhP 138,600.00</td>
+                                <td>PhP166,320.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>Projected Income for the year is expected to by at least rise by 20%</p>
+
+                <p class="table-caption">Table 9<br>CASH FLOW 1st QUARTER OF 2008<br>Projected Cash Flow Statement</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Particulars</th>
+                                <th rowspan="2">Pre- OP</th>
+                                <th colspan="3">Year</th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: left;">Cash Inflow<br>Cash Equity<br>Loan Proceeds<br>Cash Sales</td>
+                                <td><br>PhP 89,665.00<br>PhP157,000.00<br>-</td>
+                                <td><br>-<br>-<br>PhP 979,440.00</td>
+                                <td><br>-<br>-<br>PhP1,224,300.00</td>
+                                <td><br>-<br>-<br>PhP 1,591,590.00</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold; text-align: left;">Total Cash Inflow</td>
+                                <td style="font-weight: bold;">PhP 246,665.00</td>
+                                <td style="font-weight: bold;">PhP 979,440.00</td>
+                                <td style="font-weight: bold;">PhP1,224,300.00</td>
+                                <td style="font-weight: bold;">PhP 1,591,590.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Cash Outflow<br>Rental Deposit<br>Pre- Operating Expenses<br>Purchase of F/A Assets<br>Selling Expenses<br>Tax Payable<br>Loan Amortization<br>Principal<br>Interest</td>
+                                <td><br>PhP 3,000.00<br>PhP 15,000.00<br>PhP 21,440.00<br>-<br>-<br>-<br>-<br>-</td>
+                                <td><br>-<br>-<br>-<br>PhP 157,725.00<br>-<br>-<br>PhP157,000.00<br>PhP 23,550.00</td>
+                                <td><br>-<br>-<br>-<br>PhP 157,725.00<br>PhP 157,671.00<br>-<br>-<br>-</td>
+                                <td><br>-<br>-<br>-<br>PhP 157,725.00<br>PhP 189,205.63<br>-<br>-<br>-</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Total Cash Outflow</td>
+                                <td>PhP 39,440.00</td>
+                                <td>PhP 338,275.00</td>
+                                <td>PhP 315,396.00</td>
+                                <td>PhP 346,930.63</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Net Cash Inflow</td>
+                                <td>PhP 286,105.00</td>
+                                <td>PhP 431,165.00</td>
+                                <td>PhP 908,904.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Add: Cash Balance, Beg.</td>
+                                <td>-</td>
+                                <td>PhP 286,105.00</td>
+                                <td>PhP 717,270.00</td>
+                                <td>PhP 1,626,174.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; font-weight: bold;">Cash Balance, Ending</td>
+                                <td style="font-weight: bold;">PhP 286,105.00</td>
+                                <td style="font-weight: bold;">PhP 717,270.00</td>
+                                <td style="font-weight: bold;">PhP 1,626,174.00</td>
+                                <td style="font-weight: bold;">PhP 2,870,833.37</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- STUDENT ASSESSMENT SECTION (LOCKED / HIDDEN BY DEFAULT) -->
+            <section id="assessment-section" class="section-card">
+                <h2>📝 Student Knowledge Assessment</h2>
+                
+                <!-- Assessment Passkey Gatekeeper Card -->
+                <div class="assessment-lock-card" id="studentAuthGate">
+                    <h3 style="color: var(--primary); margin-top: 0;">🔒 Assessment Protected</h3>
+                    <p style="text-indent: 0; margin-bottom: 15px;">Please enter your student assessment access code to unhide and unlock the 15-item quiz.</p>
+                    <div class="input-group" style="max-width: 300px; margin: 0 auto 15px auto;">
+                        <input type="password" id="studentAccessCode" placeholder="Enter Access Code">
+                    </div>
+                    <button class="btn-submit" style="align-self: center;" onclick="unlockStudentAssessment()">Unlock Assessment</button>
+                </div>
+
+                <!-- Hidden Quiz Container -->
+                <div id="studentQuizContainer" style="display: none; margin-top: 20px;">
+                    <p style="text-indent: 0;">Please complete the form and answer all 15 questions below based on the case study. Your final score will be saved and synchronized to Google Sheets.</p>
+
+                    <form class="quiz-form" id="assessmentForm" onsubmit="submitAssessment(event)">
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <label for="studentName">Full Name:</label>
+                                <input type="text" id="studentName" required placeholder="e.g., Juan Dela Cruz">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="gradeLevel">Grade Level:</label>
+                                <input type="text" id="gradeLevel" required placeholder="e.g., Grade 12">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="studentSection">Section:</label>
+                                <input type="text" id="studentSection" required placeholder="e.g., ABM - A">
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">1. What is the initial capital required for Pumpkin Sorbet's first month of operation?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q1" value="A" required> A) PhP 150,000.00</label>
+                                <label><input type="radio" name="q1" value="B"> B) PhP 90,000.00</label>
+                                <label><input type="radio" name="q1" value="C"> C) PhP 71,995.00</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">2. How many total daily target buyers does Pumpkin Sorbet aim to serve?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q2" value="A" required> A) 316</label>
+                                <label><input type="radio" name="q2" value="B"> B) 3,504</label>
+                                <label><input type="radio" name="q2" value="C"> C) 530</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">3. What percentage Return on Equity (ROE) does the business plan aim to achieve after two years?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q3" value="A" required> A) 20%</label>
+                                <label><input type="radio" name="q3" value="B"> B) 10%</label>
+                                <label><input type="radio" name="q3" value="C"> C) 32.81%</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">4. What is the recorded product shelf life of Pumpkin Sorbet when frozen?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q4" value="A" required> A) 5 Days</label>
+                                <label><input type="radio" name="q4" value="B"> B) 28 Days</label>
+                                <label><input type="radio" name="q4" value="C"> C) 14 Days</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">5. Which existing brand dominates 45% of the market share in Buli?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q5" value="A" required> A) Kyla's Ice Cream</label>
+                                <label><input type="radio" name="q5" value="B"> B) Cream Line Ice Cream</label>
+                                <label><input type="radio" name="q5" value="C"> C) Dan Eric's Ice Cream</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">6. What is the total monthly fixed cost calculated for Pumpkin Sorbet?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q6" value="A" required> A) PhP 20,420.00</label>
+                                <label><input type="radio" name="q6" value="B"> B) PhP 51,575.00</label>
+                                <label><input type="radio" name="q6" value="C"> C) PhP 15,000.00</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">7. What selling price (SP) per cup is set for the Pumpkin Sorbet?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q7" value="A" required> A) PhP 5.00</label>
+                                <label><input type="radio" name="q7" value="B"> B) PhP 2.00</label>
+                                <label><input type="radio" name="q7" value="C"> C) PhP 7.00</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">8. How many gallons of ice cream will the proponents manufacture per day?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q8" value="A" required> A) 10 Gallons</label>
+                                <label><input type="radio" name="q8" value="B"> B) 13 Gallons</label>
+                                <label><input type="radio" name="q8" value="C"> C) 20 Gallons</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">9. What is the total projected annual gross revenue for the business?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q9" value="A" required> A) PhP 863,940.00</label>
+                                <label><input type="radio" name="q9" value="B"> B) PhP 979,440.00</label>
+                                <label><input type="radio" name="q9" value="C"> C) PhP 283,500.00</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">10. What percentage of the project capital is sourced from loan financing?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q10" value="A" required> A) 36.5%</label>
+                                <label><input type="radio" name="q10" value="B"> B) 50.0%</label>
+                                <label><input type="radio" name="q10" value="C"> C) 63.5%</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">11. What is the target market share percentage Pumpkin Sorbet aims to capture initially?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q11" value="A" required> A) 10%</label>
+                                <label><input type="radio" name="q11" value="B"> B) 20%</label>
+                                <label><input type="radio" name="q11" value="C"> C) 30%</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">12. At what interest rate is the loan amortization schedule calculated in Table 7?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q12" value="A" required> A) 10%</label>
+                                <label><input type="radio" name="q12" value="B"> B) 12%</label>
+                                <label><input type="radio" name="q12" value="C"> C) 15%</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">13. What is the primary vegetable used as the main ingredient in Pumpkin Sorbet?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q13" value="A" required> A) Carrot</label>
+                                <label><input type="radio" name="q13" value="B"> B) Squash / Pumpkin</label>
+                                <label><input type="radio" name="q13" value="C"> C) Sweet Potato</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">14. What condition is satisfied when Total Revenue equals Total Fixed Cost plus Total Variable Cost?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q14" value="A" required> A) Earning Profit</label>
+                                <label><input type="radio" name="q14" value="B"> B) Business Loss</label>
+                                <label><input type="radio" name="q14" value="C"> C) Break-Even Point</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-card">
+                            <div class="quiz-question">15. What is the total estimated monthly variable cost for production?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q15" value="A" required> A) PhP 51,575.00</label>
+                                <label><input type="radio" name="q15" value="B"> B) PhP 20,420.00</label>
+                                <label><input type="radio" name="q15" value="C"> C) PhP 71,995.00</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Submit Assessment</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- PROTECTED TEACHER ACCESS & GOOGLE APPS SCRIPT SETUP GUIDE SECTION -->
+            <section id="teacher-section" class="section-card">
+                <h2>🔑 Teacher Access Key & Google Apps Script Integration Guide</h2>
+                <p style="text-indent: 0;">Enter an authorized passkey to view student assessment answer keys, administrator controls, or the Google Apps Script integration guide.</p>
+                <!-- <p style="text-indent: 0; font-size: 0.85em; color: var(--text-muted); margin-bottom: 12px;">
+                    <em>Passkeys available: Enter <strong>P@55w0rd</strong> for the Google Apps Script Setup Guide or <strong>GAS@2026</strong> for Full Integration Access (Answer Key & Setup Guide).</em>
+                </p> -->
+                
+                <div class="input-group" style="max-width: 320px;">
+                    <label for="passcode">Access Passkey:</label>
+                    <input type="password" id="passcode" placeholder="Enter Access Code">
+                </div>
+                <button class="btn-submit" style="margin-top: 10px;" onclick="unlockTeacherKey()">Unlock Access</button>
+
+                <!-- 1. ANSWER KEY BOX -->
+                <div class="teacher-key-box" id="teacherKeyContent">
+                    <h3 style="color: var(--secondary); margin-top: 0;">Official Answer Key (15 Items)</h3>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>Question 1:</strong> B) PhP 90,000.00</li>
+                        <li><strong>Question 2:</strong> C) 530</li>
+                        <li><strong>Question 3:</strong> A) 20%</li>
+                        <li><strong>Question 4:</strong> B) 28 Days</li>
+                        <li><strong>Question 5:</strong> C) Dan Eric's Ice Cream</li>
+                        <li><strong>Question 6:</strong> A) PhP 20,420.00</li>
+                        <li><strong>Question 7:</strong> C) PhP 7.00</li>
+                        <li><strong>Question 8:</strong> B) 13 Gallons</li>
+                        <li><strong>Question 9:</strong> B) PhP 979,440.00</li>
+                        <li><strong>Question 10:</strong> C) 63.5%</li>
+                        <li><strong>Question 11:</strong> A) 10%</li>
+                        <li><strong>Question 12:</strong> C) 15%</li>
+                        <li><strong>Question 13:</strong> B) Squash / Pumpkin</li>
+                        <li><strong>Question 14:</strong> C) Break-Even Point</li>
+                        <li><strong>Question 15:</strong> A) PhP 51,575.00</li>
+                    </ul>
+                    <div style="margin-top: 15px;">
+                        <a href="https://docs.google.com/spreadsheets/d/16tsudlaX5jExBoNyL1ZfGLyLkmpPp4uimN73C0tjS4Q/edit?usp=sharing" target="_blank" class="btn-sheet-link" style="display: inline-flex;">
+                            📂 Open Google Sheet Form Submissions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. GOOGLE APPS SCRIPT SETUP GUIDE BOX -->
+                <div class="gas-guide-box" id="gasGuideContent">
+                    <h3 style="color: var(--primary); margin-top: 0;">📋 Google Apps Script Setup Guide & Integration Rules</h3>
+                    <p style="text-indent: 0;">Follow these steps to synchronize Full Name, Grade Level, Section, Score, and Timestamp from this HTML web application directly into a Google Sheet:</p>
+
+                    <h4 style="margin-top: 15px; color: var(--secondary);">Step 1: Create a Destination Google Sheet</h4>
+                    <ol style="padding-left: 20px; font-size: 0.9em;">
+                        <li>Open <a href="https://sheets.new" target="_blank" style="color: var(--primary);">Google Sheets</a> and create a new blank spreadsheet.</li>
+                        <li>In Row 1, set up the exact 5 column headers across <strong>Columns A to E</strong>:
+                            <ul>
+                                <li><strong>Column A:</strong> Timestamp</li>
+                                <li><strong>Column B:</strong> Full Name</li>
+                                <li><strong>Column C:</strong> Grade Level</li>
+                                <li><strong>Column D:</strong> Section</li>
+                                <li><strong>Column E:</strong> Score</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4 style="margin-top: 15px; color: var(--secondary);">Step 2: Add Google Apps Script Code</h4>
+                    <ol style="padding-left: 20px; font-size: 0.9em;">
+                        <li>Inside your Google Sheet, click <strong>Extensions</strong> > <strong>Apps Script</strong>.</li>
+                        <li>Delete any existing code in `Code.gs` and paste the following Google Apps Script code:</li>
+                    </ol>
+
+<pre>
+/**
+ * GOOGLE APPS SCRIPT BACKEND FOR ASSESSMENT SYNCHRONIZATION
+ * Rules & Execution:
+ * 1. Handles HTTP POST requests sent from the HTML assessment module.
+ * 2. Parses 'fullName', 'gradeLevel', 'section', 'score', and 'timestamp'.
+ * 3. Appends a new row to the active Google Sheet.
+ * 4. Returns a JSON response with status success.
+ */
+
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var parameter = e.parameter;
+    
+    var timestamp = parameter.timestamp || new Date().toLocaleString();
+    var fullName = parameter.fullName || 'N/A';
+    var gradeLevel = parameter.gradeLevel || 'N/A';
+    var section = parameter.section || 'N/A';
+    var score = parameter.score || '0 / 15';
+
+    // Append student assessment record
+    sheet.appendRow([timestamp, fullName, gradeLevel, section, score]);
+
+    return ContentService.createTextOutput(JSON.stringify({ "result": "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ "result": "error", "error": err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+</pre>
+
+                    <h4 style="margin-top: 15px; color: var(--secondary);">Step 3: Deployment Rules & Permissions</h4>
+                    <ol style="padding-left: 20px; font-size: 0.9em;">
+                        <li>Click <strong>Deploy</strong> > <strong>New deployment</strong>.</li>
+                        <li>Click the gear icon next to <em>Select type</em> and select <strong>Web app</strong>.</li>
+                        <li>Set <strong>Execute as:</strong> <code>Me (your email address)</code></li>
+                        <li>Set <strong>Who has access:</strong> <code>Anyone</code> <em>(Mandatory rule so student submissions pass without Google Login block)</em>.</li>
+                        <li>Click <strong>Deploy</strong>, grant permissions, and copy the generated <strong>Web App URL</strong>.</li>
+                        <li>Paste the Web App URL into the <code>const webAppUrl</code> variable in the JavaScript code of this HTML file.</li>
+                    </ol>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <!--
+    <script>
+        
+    </script>
+    -->
+    <script src="script.js"></script>
+</body>
+<footer style="text-align: center;"><strong>Don Vicente Rama Memorial National High School</strong><br>Macopa Street, Basak, Cebu City<br>Powered by: Desk Bhuddy | It solutions made it for you &copy; 2026</footer>
+</html>
