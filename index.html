@@ -7,7 +7,7 @@
     <!-- Google Fonts for modern, clean typography tailored for Senior High School (Grade 12) Learning -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-<!-- 
+<!--
     <style>
         
     </style>
@@ -40,8 +40,9 @@
                 <button class="btn-font-size" onclick="adjustFontSize(1)">A+</button>
             </div>
 
-            <a href="https://docs.google.com/spreadsheets/d/16tsudlaX5jExBoNyL1ZfGLyLkmpPp4uimN73C0tjS4Q/edit?usp=sharing" target="_blank" class="btn-sheet-link" title="Open Google Sheet Form">
-                <span>📊</span> Google Sheet
+            <!-- DEDICATED LINK TO ASSESSMENT GOOGLE SHEET (HIDDEN BY DEFAULT; UNHIDES ON VALID PASSKEY) -->
+            <a href="https://docs.google.com/spreadsheets/d/16tsudlaX5jExBoNyL1ZfGLyLkmpPp4uimN73C0tjS4Q/edit?usp=sharing" target="_blank" class="btn-sheet-link" id="headerAssessmentSheetBtn" style="display: none;" title="Open Student Assessment Google Sheet">
+                <span>📊</span> Assessment Sheet
             </a>
 
             <div class="search-box">
@@ -63,9 +64,8 @@
         <div class="donation-modal-card">
             <!-- CLOSE BUTTON -->
             <button class="btn-modal-close-icon" onclick="closeDonationModal()">&times;</button>
-            
-            <!-- PHONE ICON BADGE -->
-<!--
+ 
+            <!-- ===PHONE ICON BADGE ===
             <div class="modal-icon-wrapper">
                 <svg viewBox="0 0 24 24">
                     <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
@@ -77,11 +77,11 @@
 
             <!-- BLUE BANNER BOX -->
             <div class="modal-banner-box">
-                <p>Donations are entirely voluntary and are not required to access or use the educational resources on this website. Any amount you choose to donate is greatly appreciated and will help support the maintenance, development, and continued availability of these learning materials. Thank you for your generosity and support!</p>
+                <p>Donations are entirely voluntary and are not required to access or use the educational resources on this website.</p>
             </div>
 
             <!-- SUBTEXT -->
-            <p class="modal-subtext">Your donations help keep this website free and operational.</p>
+            <p class="modal-subtext">Any amount you choose to donate is greatly appreciated and will help support the maintenance, development, and continued availability of these learning materials. Thank you for your generosity and support!</p>
 
             <!-- GCASH ACCOUNT DISPLAY BOX -->
             <div class="modal-gcash-box">
@@ -95,10 +95,10 @@
             <!-- DONATION FORM INPUT FIELDS -->
             <form class="header-donation-form" id="headerDonationForm" onsubmit="submitHeaderDonation(event)">
                 <div class="input-group">
-                    <input type="text" id="donorName" class="donor-name" placeholder="Name" required>
+                    <input type="text" id="donorName" class="donor-name" placeholder="Full Name" required>
                 </div>
                 <div class="input-group">
-                    <input type="number" id="donorAmount" class="donor-amount" placeholder="Any amount (₱)" min="1" step="any" required>
+                    <input type="number" id="donorAmount" class="donor-amount" placeholder="Amount (₱)" min="1" step="any" required>
                 </div>
                 <button type="submit" class="btn-donate">Submit Donation</button>
             </form>
@@ -1199,10 +1199,10 @@
                 </div>
             </section>
 
-            <!-- PROTECTED TEACHER ACCESS & GOOGLE APPS SCRIPT SETUP GUIDE SECTION -->
+            <!-- PROTECTED TEACHER ACCESS & GOOGLE APPS SCRIPT INTEGRATION GUIDE SECTION -->
             <section id="teacher-section" class="section-card">
-                <h2>🔑 Teacher Access Key & Google Apps Script Integration Guide</h2>
-                <p style="text-indent: 0;">Enter an authorized passkey to view student assessment answer keys, administrator controls, or the Google Apps Script integration guide.</p>
+                <h2>🔑 Teacher Access Key & Google Apps Script Integration Guides</h2>
+                <p style="text-indent: 0;">Enter an authorized passkey to view student assessment answer keys, administrator controls, or the Google Apps Script integration guides for both Student Assessment and Website Donations.</p>
                 <!-- <p style="text-indent: 0; font-size: 0.85em; color: var(--text-muted); margin-bottom: 12px;">
                     <em>Passkeys available: Enter <strong>P@55w0rd</strong> for the Google Apps Script Setup Guide or <strong>GAS@2026</strong> for Full Integration Access (Answer Key & Setup Guide).</em>
                 </p> -->
@@ -1233,66 +1233,51 @@
                         <li><strong>Question 14:</strong> C) Break-Even Point</li>
                         <li><strong>Question 15:</strong> A) PhP 51,575.00</li>
                     </ul>
-                    <div style="margin-top: 15px;">
+                    <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
                         <a href="https://docs.google.com/spreadsheets/d/16tsudlaX5jExBoNyL1ZfGLyLkmpPp4uimN73C0tjS4Q/edit?usp=sharing" target="_blank" class="btn-sheet-link" style="display: inline-flex;">
-                            📂 Open Google Sheet Form Submissions
+                            📊 Open Student Assessment Sheet
                         </a>
+                        
                     </div>
                 </div>
 
-                <!-- 2. GOOGLE APPS SCRIPT SETUP GUIDE BOX -->
+                <!-- 2. GOOGLE APPS SCRIPT SETUP GUIDE BOX (TWO SEPARATE INTEGRATIONS) -->
                 <div class="gas-guide-box" id="gasGuideContent">
-                    <h3 style="color: var(--primary); margin-top: 0;">📋 Google Apps Script Setup Guide & Integration Rules</h3>
-                    <p style="text-indent: 0;">Follow these steps to synchronize Full Name, Grade Level, Section, Score, Donations, and Timestamp from this HTML web application directly into a Google Sheet:</p>
+                    <h3 style="color: var(--primary); margin-top: 0;">📋 Dedicated Google Apps Script Setup Guides</h3>
+                    <p style="text-indent: 0;">Below are the standalone Google Sheet & Apps Script integration instructions for both the <strong>Student Assessment</strong> and the <strong>Website Donation</strong> modules.</p>
 
-                    <h4 style="margin-top: 15px; color: var(--secondary);">Step 1: Create a Destination Google Sheet</h4>
-                    <ol style="padding-left: 20px; font-size: 0.9em;">
-                        <li>Open <a href="https://sheets.new" target="_blank" style="color: var(--primary);">Google Sheets</a> and create a new blank spreadsheet.</li>
-                        <li>In Row 1, set up two tabs or create columns in a single tab to capture both Student Assessments and Website Donations:
-                            <ul>
-                                <li><strong>Assessment Columns (A to E):</strong> Timestamp, Full Name, Grade Level, Section, Score</li>
-                                <li><strong>Donation Columns (A to D):</strong> Timestamp, Type (Donation/Assessment), Donor Name, Amount</li>
-                            </ul>
-                        </li>
-                    </ol>
-
-                    <h4 style="margin-top: 15px; color: var(--secondary);">Step 2: Add Google Apps Script Code</h4>
-                    <ol style="padding-left: 20px; font-size: 0.9em;">
-                        <li>Inside your Google Sheet, click <strong>Extensions</strong> > <strong>Apps Script</strong>.</li>
-                        <li>Delete any existing code in `Code.gs` and paste the following updated Google Apps Script code:</li>
-                    </ol>
+                    <!-- SECTION A: STUDENT ASSESSMENT GOOGLE APPS SCRIPT GUIDE -->
+                    <div class="assessment-gas-instruction-box" style="margin-top: 15px; padding: 18px; border: 1px solid var(--secondary); border-radius: 10px; background-color: var(--secondary-light);">
+                        <h4 style="color: var(--secondary); margin-top: 0; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+                            <span>📝</span> 1. Student Assessment Google Sheet & Apps Script Guide
+                        </h4>
+                        <p style="text-indent: 0; font-size: 0.9em; margin-bottom: 10px;">
+                            This integration records student names, grade levels, sections, scores, and completion timestamps.
+                        </p>
+                        
+                        <ol style="padding-left: 20px; font-size: 0.88em; line-height: 1.6;">
+                            <li><strong>Create Assessment Google Sheet:</strong> Open <a href="https://sheets.new" target="_blank" style="color: var(--secondary); font-weight: bold;">Google Sheets</a> and set up headers in Row 1: <code>Timestamp</code>, <code>Full Name</code>, <code>Grade Level</code>, <code>Section</code>, and <code>Score</code>.</li>
+                            <li><strong>Add Assessment Google Apps Script Code:</strong> Open <em>Extensions > Apps Script</em> and paste the following dedicated code:</li>
+                        </ol>
 
 <pre>
 /**
- * GOOGLE APPS SCRIPT BACKEND FOR ASSESSMENT & DONATION SYNCHRONIZATION
- * Rules & Execution:
- * 1. Handles HTTP POST requests sent from both the Assessment module and the Header Donation form.
- * 2. Parses 'type' parameter: 'DONATION' vs 'ASSESSMENT'.
- * 3. Appends a new row to the corresponding Google Sheet table.
- * 4. Returns a JSON response with status success.
+ * DEDICATED GOOGLE APPS SCRIPT BACKEND FOR STUDENT ASSESSMENT
+ * Destination Sheet: Student Assessment Submissions
  */
-
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var parameter = e.parameter;
-    var timestamp = parameter.timestamp || new Date().toLocaleString();
-    var type = parameter.type || 'ASSESSMENT';
+    var p = e.parameter;
+    
+    var timestamp = p.timestamp || new Date().toLocaleString();
+    var fullName = p.fullName || 'N/A';
+    var gradeLevel = p.gradeLevel || 'N/A';
+    var section = p.section || 'N/A';
+    var score = p.score || '0 / 15';
 
-    if (type === 'DONATION') {
-      var donorName = parameter.donorName || 'Anonymous';
-      var amount = parameter.amount || '0';
-      // Append donation log: Timestamp, Action Type, Donor Name, Amount
-      sheet.appendRow([timestamp, 'DONATION', donorName, '₱' + amount]);
-    } else {
-      var fullName = parameter.fullName || 'N/A';
-      var gradeLevel = parameter.gradeLevel || 'N/A';
-      var section = parameter.section || 'N/A';
-      var score = parameter.score || '0 / 15';
-
-      // Append student assessment record: Timestamp, Full Name, Grade Level, Section, Score
-      sheet.appendRow([timestamp, fullName, gradeLevel, section, score]);
-    }
+    // Append record to the Assessment Google Sheet
+    sheet.appendRow([timestamp, fullName, gradeLevel, section, score]);
 
     return ContentService.createTextOutput(JSON.stringify({ "result": "success" }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -1303,19 +1288,61 @@ function doPost(e) {
 }
 </pre>
 
-                    <h4 style="margin-top: 15px; color: var(--secondary);">Step 3: Deployment Rules & Permissions</h4>
-                    <ol style="padding-left: 20px; font-size: 0.9em;">
-                        <li>Click <strong>Deploy</strong> > <strong>New deployment</strong>.</li>
-                        <li>Click the gear icon next to <em>Select type</em> and select <strong>Web app</strong>.</li>
-                        <li>Set <strong>Execute as:</strong> <code>Me (your email address)</code></li>
-                        <li>Set <strong>Who has access:</strong> <code>Anyone</code> <em>(Mandatory rule so submissions pass without Google Login block)</em>.</li>
-                        <li>Click <strong>Deploy</strong>, grant permissions, and copy the generated <strong>Web App URL</strong>.</li>
-                        <li>Paste the Web App URL into the <code>const webAppUrl</code> variable in the JavaScript code of this HTML file.</li>
-                    </ol>
+                        <ol start="3" style="padding-left: 20px; font-size: 0.88em; line-height: 1.6;">
+                            <li><strong>Deploy Web App:</strong> Click <em>Deploy > New deployment > Web app</em>. Set <em>Execute as: Me</em> and <em>Who has access: Anyone</em>. Copy the Web App URL and paste it into <code>const assessmentWebAppUrl</code> in the JavaScript section below.</li>
+                        </ol>
+                    </div>
 
-                    <h4 style="margin-top: 15px; color: var(--secondary);">Step 4: GCash Support Number Configuration</h4>
+                    <!-- SECTION B: DONATION GOOGLE APPS SCRIPT GUIDE -->
+                    <div class="donor-gas-instruction-box" style="margin-top: 25px; padding: 18px; border: 1px solid var(--primary); border-radius: 10px; background-color: var(--primary-light);">
+                        <h4 style="color: var(--primary); margin-top: 0; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+                            <span>💖</span> 2. Donation Google Sheet & Apps Script Guide
+                        </h4>
+                        <p style="text-indent: 0; font-size: 0.9em; margin-bottom: 10px;">
+                            This integration records website support donations (donor full name, donation amount in PHP, and submission timestamp) into a separate, dedicated Google Sheet.
+                        </p>
+                        
+                        <ol style="padding-left: 20px; font-size: 0.88em; line-height: 1.6;">
+                            <li><strong>Create Dedicated Donation Google Sheet:</strong> Create a separate blank spreadsheet in Google Sheets and add Row 1 headers: <code>Timestamp</code>, <code>Donor Name</code>, and <code>Amount (PHP)</code>.</li>
+                            <li><strong>Add Donation Google Apps Script Code:</strong> In that spreadsheet, click <em>Extensions > Apps Script</em> and paste the following dedicated code:</li>
+                        </ol>
+
+<pre>
+/**
+ * DEDICATED GOOGLE APPS SCRIPT BACKEND FOR WEBSITE DONATIONS
+ * Destination Sheet: Website Donor Records
+ */
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var p = e.parameter;
+    
+    var timestamp = p.timestamp || new Date().toLocaleString();
+    var donorName = p.donorName || 'Anonymous';
+    var amount = p.amount || '0';
+
+    // Append record to the Dedicated Donation Google Sheet
+    sheet.appendRow([timestamp, donorName, '₱' + amount]);
+
+    return ContentService.createTextOutput(JSON.stringify({ "result": "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ "result": "error", "error": err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+</pre>
+
+                        <ol start="3" style="padding-left: 20px; font-size: 0.88em; line-height: 1.6;">
+                            <li><strong>Deploy Web App:</strong> Click <em>Deploy > New deployment > Web app</em>. Set <em>Execute as: Me</em> and <em>Who has access: Anyone</em>. Copy the Web App URL and paste it into <code>const donationWebAppUrl</code> in the JavaScript section below.</li>
+                        </ol>
+                    </div>
+
+                    <h4 style="margin-top: 20px; color: var(--secondary);">Step 4: GCash Support Number Configuration</h4>
                     <p style="text-indent: 0; font-size: 0.9em;">To update the GCash number displayed in the donation modal popup, search for the HTML class <code>modal-gcash-number</code> in this file and replace the number <code>0968-704-2059</code> with your active GCash mobile number.</p>
+                    <a href="https://docs.google.com/spreadsheets/d/1EfJDssDD3UsQnYHO4rrHRojJ3Q04y45ENjtRBZrglmk/edit?usp=sharing" target="_blank" class="btn-sheet-link" style="display: inline-flex; background-color: #007cff;">💖 Open Donors Google Sheet</a>
                 </div>
+                
             </section>
 
         </main>
@@ -1324,14 +1351,13 @@ function doPost(e) {
     <!-- JAVASCRIPT LOGIC -->
 <!--
     <script>
-        
     </script>
 -->
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 <footer>
-    <strong>Don Vicente Rama Memorial National High School</strong>
-    <span>Macopa Street, Basak, Cebu City</span>
-    <span>Powered by: Desk Bhuddy | IT solutions made for you &copy; 2026</span>
+    <!-- <strong>Don Vicente Rama Memorial National High School</strong>
+    <span>Macopa Street, Basak, Cebu City</span> -->
+    <span>Powered by: <strong>Desk Bhuddy</strong>| IT solutions made it just for you &copy; 2026</span>
 </footer>
 </html>
