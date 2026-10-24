@@ -1,4 +1,5 @@
-// Dynamic Scoped Font Scaling for Classroom Back-Row Visibility
+
+        // Dynamic Scoped Font Scaling for Classroom Back-Row Visibility
         let currentFontSize = 16; // default content base font size in pixels
 
         function adjustFontSize(delta) {
@@ -191,14 +192,17 @@
             const pass = document.getElementById('passcode').value;
             const keyBox = document.getElementById('teacherKeyContent');
             const guideBox = document.getElementById('gasGuideContent');
+            const headerSheetBtn = document.getElementById('headerAssessmentSheetBtn');
 
             if (pass === 'P@55w0rd') {
                 keyBox.style.display = 'none';
                 guideBox.style.display = 'block';
+                if (headerSheetBtn) headerSheetBtn.style.display = 'inline-flex'; // Unhide header assessment sheet button
                 alert('Access Granted! Unlocked Google Apps Script Setup Guide & Integration Rules.');
             } else if (pass === 'GAS@2026') {
                 keyBox.style.display = 'block';
                 guideBox.style.display = 'none';
+                if (headerSheetBtn) headerSheetBtn.style.display = 'inline-flex'; // Unhide header assessment sheet button
                 alert('Access Granted! Unlocked Full Integration Access (Answer Key & Setup Guide).');
             } else {
                 alert('Invalid Access Passkey!');
@@ -243,9 +247,16 @@
         // Run once as the page loads. A fresh random order is generated on every open or reload.
         shuffleAssessmentQuestions();
 
-        // 7. Assessment & Google Sheets Web App Synchronization
-        const webAppUrl = "https://script.google.com/macros/s/AKfycbzX6OA-BPrw_Xcl-EvRtNO85oNqEQgqET4kGjVYKxkzj4IOVcBJ54f0vZgwUn7e9_nsWw/exec";
+        /* ==========================================================================
+           7. DEDICATED GOOGLE APPS SCRIPT WEB APP ENDPOINTS
+           ========================================================================== */
+        // 1) DEDICATED WEB APP URL FOR STUDENT ASSESSMENTS
+        const assessmentWebAppUrl = "https://script.google.com/macros/s/AKfycbzX6OA-BPrw_Xcl-EvRtNO85oNqEQgqET4kGjVYKxkzj4IOVcBJ54f0vZgwUn7e9_nsWw/exec";
 
+        // 2) DEDICATED WEB APP URL FOR WEBSITE DONATIONS
+        const donationWebAppUrl = "https://script.google.com/macros/s/AKfycbxNtFtWctuXBa6KVdQe2zu1Y2SOOE60M96AxFFYSeiHOfmSuYBG7iqAY0PyYCsIq1hFlA/exec";
+
+        // Assessment Form Submission & Google Sheets Synchronization
         function submitAssessment(event) {
             event.preventDefault();
             
@@ -272,29 +283,57 @@
 
             alert(`Assessment Submitted!\n\nName: ${name}\nGrade Level: ${grade}\nSection: ${section}\nScore: ${score} / 15`);
 
-            if (webAppUrl && webAppUrl !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+            if (assessmentWebAppUrl && assessmentWebAppUrl !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
                 const formData = new URLSearchParams();
-                formData.append('type', 'ASSESSMENT');
                 formData.append('fullName', name);
                 formData.append('gradeLevel', grade);
                 formData.append('section', section);
                 formData.append('score', score + ' / 15');
                 formData.append('timestamp', new Date().toLocaleString());
 
-                fetch(webAppUrl, {
+                fetch(assessmentWebAppUrl, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: formData.toString()
                 }).then(() => {
-                    alert('Assessment results synchronized successfully to Google Sheets!');
+                    alert('Assessment results synchronized successfully to the Student Assessment Google Sheet!');
                 }).catch(err => {
                     console.error('Error synchronizing assessment:', err);
                 });
             }
         }
 
-        // 8. Header Donation Form Submission Logic (Inside Popup Screen)
+        /* ==========================================================================
+           8. DEDICATED DONATION INTEGRATION SCRIPT & DEVELOPER GUIDE
+           ==========================================================================
+           DEVELOPER & ADMINISTRATOR INSTRUCTIONS FOR DONATIONS:
+           
+           To receive donor details in a separate, dedicated Google Sheet:
+           
+           Step A (Dedicated Apps Script for Donations):
+           --------------------------------------------------------------------------
+           Create a separate Apps Script attached to your dedicated Donors Google Sheet:
+           
+           function doPost(e) {
+             var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+             var p = e.parameter;
+             sheet.appendRow([
+               p.timestamp || new Date().toLocaleString(),
+               p.donorName || 'Anonymous',
+               '₱' + (p.amount || '0')
+             ]);
+             return ContentService.createTextOutput(JSON.stringify({result: 'success'}))
+               .setMimeType(ContentService.MimeType.JSON);
+           }
+
+           Step B (Frontend Execution):
+           --------------------------------------------------------------------------
+           The `submitHeaderDonation(event)` function posts parameters asynchronously
+           to `donationWebAppUrl` using fetch() with mode: 'no-cors'.
+           ========================================================================== */
+
+        // Header Donation Form Submission Logic (Inside Popup Screen)
         function submitHeaderDonation(event) {
             event.preventDefault();
 
@@ -303,24 +342,27 @@
 
             alert(`Thank you for supporting our website!\n\nDonor: ${name}\nAmount: ₱${amount}\n\nPlease transfer your pledge to our GCash account: 0968-704-2059`);
 
-            if (webAppUrl && webAppUrl !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+            if (donationWebAppUrl && donationWebAppUrl !== "YOUR_DEDICATED_DONATION_WEB_APP_URL") {
                 const formData = new URLSearchParams();
-                formData.append('type', 'DONATION');
                 formData.append('donorName', name);
                 formData.append('amount', amount);
                 formData.append('timestamp', new Date().toLocaleString());
 
-                fetch(webAppUrl, {
+                fetch(donationWebAppUrl, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: formData.toString()
                 }).then(() => {
-                    alert('Donation log sent successfully to Google Sheets!');
+                    alert('Donation log sent successfully to the Dedicated Donor Google Sheet!');
                     document.getElementById('headerDonationForm').reset();
                     closeDonationModal();
                 }).catch(err => {
                     console.error('Error sending donation log:', err);
                 });
+            } else {
+                // Graceful fallback when web app URL is not yet configured
+                document.getElementById('headerDonationForm').reset();
+                closeDonationModal();
             }
         }
