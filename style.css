@@ -178,7 +178,210 @@
         .header-controls {
             display: flex;
             align-items: center;
+            gap: 10px;
+        }
+
+        /* HEADER SUPPORT BUTTON STYLES */
+        .btn-support-header {
+            background: linear-gradient(135deg, #007cff, #0056b3);
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-support-header:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        /* SMALL SCREEN / MODAL DONATION POPUP STYLES */
+        .donation-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            backdrop-filter: blur(4px);
+            transition: var(--transition);
+        }
+
+        .donation-modal-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px 25px 25px 25px;
+            width: 90%;
+            max-width: 440px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            animation: modalPopIn 0.25s ease-out;
+            text-align: center;
+        }
+
+        @keyframes modalPopIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* MODAL ICON & HEADER STYLES BASED ON DETAILED IMAGE DESIGN */
+        .modal-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background-color: #e8f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px auto;
+        }
+
+        .modal-icon-wrapper svg {
+            width: 26px;
+            height: 26px;
+            fill: #1a73e8;
+        }
+
+        .donation-modal-card h3.modal-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+
+        .btn-modal-close-icon {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: #9ca3af;
+            cursor: pointer;
+            line-height: 1;
+            transition: var(--transition);
+        }
+
+        .btn-modal-close-icon:hover {
+            color: #111827;
+        }
+
+        /* BLUE BANNER BOX */
+        .modal-banner-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+        }
+
+        .modal-banner-box p {
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 0.98rem;
+            line-height: 1.45;
+            text-align: center;
+            text-indent: 0;
+            margin: 0;
+        }
+
+        .modal-subtext {
+            color: #6b7280;
+            font-size: 0.85rem;
+            text-align: center;
+            text-indent: 0;
+            margin-bottom: 18px;
+        }
+
+        /* GCASH ACCOUNT DISPLAY BOX */
+        .modal-gcash-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 22px;
+        }
+
+        .modal-gcash-label {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #94a3b8;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .modal-gcash-number {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: #1d4ed8;
+            letter-spacing: 0.5px;
+            font-family: var(--font-heading);
+        }
+
+        .donor-info-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111827;
+            text-align: left;
+            margin-bottom: 12px;
+            font-family: var(--font-heading);
+        }
+
+        .header-donation-form {
+            display: flex;
+            flex-direction: column;
             gap: 12px;
+            text-align: left;
+        }
+
+        .header-donation-form input {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-body);
+            color: var(--text-dark);
+            outline: none;
+            font-size: 0.9rem;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .header-donation-form input:focus {
+            border-color: var(--primary);
+        }
+
+        .btn-donate {
+            background-color: #1d4ed8;
+            color: #ffffff;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        .btn-donate:hover {
+            background-color: #1e40af;
         }
 
         .font-size-controls {
@@ -229,12 +432,12 @@
             color: var(--text-dark);
             outline: none;
             font-size: 0.85rem;
-            width: 140px;
+            width: 120px;
             transition: var(--transition);
         }
 
         .search-box input:focus {
-            width: 200px;
+            width: 170px;
             border-color: var(--primary);
         }
 
@@ -867,10 +1070,10 @@
                 display: none;
             }
             .search-box input {
-                width: 100px;
+                width: 90px;
             }
             .search-box input:focus {
-                width: 140px;
+                width: 120px;
             }
         }
 
