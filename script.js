@@ -25,6 +25,21 @@
             }
         }
 
+        // Modal Controls for Header Support / Donation Popup
+        function openDonationModal() {
+            document.getElementById('donationModalOverlay').style.display = 'flex';
+        }
+
+        function closeDonationModal() {
+            document.getElementById('donationModalOverlay').style.display = 'none';
+        }
+
+        function closeDonationModalOnBackdrop(event) {
+            if (event.target.id === 'donationModalOverlay') {
+                closeDonationModal();
+            }
+        }
+
         // 1. Theme Management, Sidebar Toggles & Mobile Navigation
         function changeTheme(themeName) {
             document.documentElement.setAttribute('data-theme', themeName);
@@ -229,6 +244,8 @@
         shuffleAssessmentQuestions();
 
         // 7. Assessment & Google Sheets Web App Synchronization
+        const webAppUrl = "https://script.google.com/macros/s/AKfycbzX6OA-BPrw_Xcl-EvRtNO85oNqEQgqET4kGjVYKxkzj4IOVcBJ54f0vZgwUn7e9_nsWw/exec";
+
         function submitAssessment(event) {
             event.preventDefault();
             
@@ -255,11 +272,9 @@
 
             alert(`Assessment Submitted!\n\nName: ${name}\nGrade Level: ${grade}\nSection: ${section}\nScore: ${score} / 15`);
 
-            // Replace with your Web App URL after deploying Google Apps Script
-            const webAppUrl = "https://script.google.com/macros/s/AKfycbzX6OA-BPrw_Xcl-EvRtNO85oNqEQgqET4kGjVYKxkzj4IOVcBJ54f0vZgwUn7e9_nsWw/exec";
-
             if (webAppUrl && webAppUrl !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
                 const formData = new URLSearchParams();
+                formData.append('type', 'ASSESSMENT');
                 formData.append('fullName', name);
                 formData.append('gradeLevel', grade);
                 formData.append('section', section);
@@ -272,9 +287,40 @@
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: formData.toString()
                 }).then(() => {
-                    alert('Results synchronized successfully to Google Sheets!');
+                    alert('Assessment results synchronized successfully to Google Sheets!');
                 }).catch(err => {
-                    console.error('Error synchronizing:', err);
+                    console.error('Error synchronizing assessment:', err);
+                });
+            }
+        }
+
+        // 8. Header Donation Form Submission Logic (Inside Popup Screen)
+        function submitHeaderDonation(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('donorName').value;
+            const amount = document.getElementById('donorAmount').value;
+
+            alert(`Thank you for supporting our website!\n\nDonor: ${name}\nAmount: ₱${amount}\n\nPlease transfer your pledge to our GCash account: 0968-704-2059`);
+
+            if (webAppUrl && webAppUrl !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+                const formData = new URLSearchParams();
+                formData.append('type', 'DONATION');
+                formData.append('donorName', name);
+                formData.append('amount', amount);
+                formData.append('timestamp', new Date().toLocaleString());
+
+                fetch(webAppUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formData.toString()
+                }).then(() => {
+                    alert('Donation log sent successfully to Google Sheets!');
+                    document.getElementById('headerDonationForm').reset();
+                    closeDonationModal();
+                }).catch(err => {
+                    console.error('Error sending donation log:', err);
                 });
             }
         }
